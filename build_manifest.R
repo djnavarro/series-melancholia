@@ -18,13 +18,13 @@ manifest <- tibble::tibble(path = paths) %>%
   ) %>%
   tidyr::separate(
     col = filespec,
-    into = c("series", "sys_id", "pos_id", "img_id"),
+    into = c("series", "sys_id", "img_id"),
     sep = "_"
   ) %>%
   dplyr::mutate(
     resolution = as.integer(resolution),
-    date = "2021-10-05"
+    date = "2021-10-06"
   ) %>%
-  dplyr::arrange(date, pos_id)
+  dplyr::arrange(date, img_id)
 
 readr::write_csv(manifest, here::here("docs", "manifest.csv"))
